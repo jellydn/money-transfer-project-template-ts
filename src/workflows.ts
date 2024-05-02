@@ -1,6 +1,6 @@
+import { ApplicationFailure } from '@temporalio/common'
 // @@@SNIPSTART money-transfer-project-template-ts-workflow
 import { proxyActivities } from '@temporalio/workflow'
-import { ApplicationFailure } from '@temporalio/common'
 
 import type * as activities from './activities'
 import type { PaymentDetails } from './shared'

@@ -1,11 +1,11 @@
-import { TestWorkflowEnvironment } from '@temporalio/testing'
-import { WorkflowFailedError } from '@temporalio/client'
-import { after, before, it } from 'mocha'
-import { Worker } from '@temporalio/worker'
 import assert from 'assert'
+import { WorkflowFailedError } from '@temporalio/client'
+import { TestWorkflowEnvironment } from '@temporalio/testing'
+import { Worker } from '@temporalio/worker'
+import { after, before, it } from 'mocha'
 import * as activities from '../activities'
-import { moneyTransfer } from '../workflows'
 import type { PaymentDetails } from '../shared'
+import { moneyTransfer } from '../workflows'
 
 describe('Money Transfer workflow', () => {
   let testEnv: TestWorkflowEnvironment

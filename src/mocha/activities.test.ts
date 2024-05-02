@@ -1,8 +1,8 @@
+import assert from 'assert'
 import { MockActivityEnvironment } from '@temporalio/testing'
 import { it } from 'mocha'
-import assert from 'assert'
-import type { PaymentDetails } from '../shared'
 import * as activities from '../activities'
+import type { PaymentDetails } from '../shared'
 
 describe('money transfer activities', async () => {
   it('successfully withdraws money from the account', async () => {
