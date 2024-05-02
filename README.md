@@ -19,6 +19,8 @@ bun install
 bun run dev
 ```
 
+[![Demo](https://i.gyazo.com/ca83db592f3d6ed6387694bea33df154.gif)](https://gyazo.com/ca83db592f3d6ed6387694bea33df154)
+
 ## Run tests
 
 ```sh
