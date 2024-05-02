@@ -1,5 +1,5 @@
-import { BankingService } from './banking-client'
 // @@@SNIPSTART money-transfer-project-template-ts-withdraw-activity
+import { BankingService } from './banking-client'
 import type { PaymentDetails } from './shared'
 
 export async function withdraw(details: PaymentDetails): Promise<string> {

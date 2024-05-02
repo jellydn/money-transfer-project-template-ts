@@ -1,23 +1,33 @@
 import assert from 'assert'
 import { WorkflowFailedError } from '@temporalio/client'
 import { TestWorkflowEnvironment } from '@temporalio/testing'
-import { Worker } from '@temporalio/worker'
-import { after, before, it } from 'mocha'
+import { DefaultLogger, LogEntry, Runtime, Worker } from '@temporalio/worker'
+import { afterAll, beforeAll, describe, it, vi } from 'vitest'
+
 import * as activities from '../activities'
 import type { PaymentDetails } from '../shared'
 import { moneyTransfer } from '../workflows'
 
+let testEnv: TestWorkflowEnvironment
+
+vi.setConfig({ testTimeout: 5_000_000 })
+
+beforeAll(async function () {
+  // Use console.log instead of console.error to avoid red output
+  // Filter INFO log messages for clearer test output
+  Runtime.install({
+    logger: new DefaultLogger('WARN', (entry: LogEntry) =>
+      console.log(`[${entry.level}]`, entry.message),
+    ),
+  })
+  testEnv = await TestWorkflowEnvironment.createLocal()
+}, 30_000)
+
+afterAll(async () => {
+  await testEnv?.teardown()
+})
+
 describe('Money Transfer workflow', () => {
-  let testEnv: TestWorkflowEnvironment
-  before(async function () {
-    // this.timeout(_000);
-    testEnv = await TestWorkflowEnvironment.createLocal()
-  })
-
-  after(async () => {
-    await testEnv?.teardown()
-  })
-
   it('successfully withdraws and deposits given existing bank account information', async () => {
     const { client, nativeConnection } = testEnv
     const taskQueue = 'test'
@@ -25,7 +35,7 @@ describe('Money Transfer workflow', () => {
     const worker = await Worker.create({
       connection: nativeConnection,
       taskQueue,
-      workflowsPath: require.resolve('../workflows'),
+      workflowsPath: require.resolve('../workflows.ts'),
       activities: {
         withdraw: async () => 'w1234567890',
         deposit: async () => 'd1234567890',
@@ -60,7 +70,7 @@ describe('Money Transfer workflow', () => {
     const worker = await Worker.create({
       connection: nativeConnection,
       taskQueue,
-      workflowsPath: require.resolve('../workflows'),
+      workflowsPath: require.resolve('../workflows.ts'),
       activities,
     })
 
@@ -95,7 +105,7 @@ describe('Money Transfer workflow', () => {
     const worker = await Worker.create({
       connection: nativeConnection,
       taskQueue,
-      workflowsPath: require.resolve('../workflows'),
+      workflowsPath: require.resolve('../workflows.ts'),
       activities,
     })
 
@@ -130,7 +140,7 @@ describe('Money Transfer workflow', () => {
     const worker = await Worker.create({
       connection: nativeConnection,
       taskQueue,
-      workflowsPath: require.resolve('../workflows'),
+      workflowsPath: require.resolve('../workflows.ts'),
       activities,
     })
 

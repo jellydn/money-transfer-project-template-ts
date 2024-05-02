@@ -1,5 +1,5 @@
-import { ApplicationFailure } from '@temporalio/common'
 // @@@SNIPSTART money-transfer-project-template-ts-workflow
+import { ApplicationFailure } from '@temporalio/common'
 import { proxyActivities } from '@temporalio/workflow'
 
 import type * as activities from './activities'

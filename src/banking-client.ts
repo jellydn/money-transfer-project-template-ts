@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 // This code simulates a client for a hypothetical banking service.
 // It supports both withdrawals and deposits, and returns a transaction ID.
 //
