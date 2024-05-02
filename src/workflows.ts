@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 // @@@SNIPSTART money-transfer-project-template-ts-workflow
-import { proxyActivities } from '@temporalio/workflow';
-import { ApplicationFailure } from '@temporalio/common';
+import { proxyActivities } from '@temporalio/workflow'
+import { ApplicationFailure } from '@temporalio/common'
 
-import type * as activities from './activities';
-import type { PaymentDetails } from './shared';
+import type * as activities from './activities'
+import type { PaymentDetails } from './shared'
 
 export async function moneyTransfer(details: PaymentDetails): Promise<string> {
   // Get the Activities for the Workflow and set up the Activity Options.
@@ -18,34 +17,34 @@ export async function moneyTransfer(details: PaymentDetails): Promise<string> {
       nonRetryableErrorTypes: ['InvalidAccountError', 'InsufficientFundsError'],
     },
     startToCloseTimeout: '1 minute',
-  });
+  })
 
   // Execute the withdraw Activity
-  let withdrawResult: string;
+  let withdrawResult: string
   try {
-    withdrawResult = await withdraw(details);
+    withdrawResult = await withdraw(details)
   } catch (withdrawErr) {
-    throw new ApplicationFailure(`Withdrawal failed. Error: ${withdrawErr}`);
+    throw new ApplicationFailure(`Withdrawal failed. Error: ${withdrawErr}`)
   }
 
   //Execute the deposit Activity
-  let depositResult: string;
+  let depositResult: string
   try {
-    depositResult = await deposit(details);
+    depositResult = await deposit(details)
   } catch (depositErr) {
     // The deposit failed; try to refund the money.
-    let refundResult;
+    let refundResult
     try {
-      refundResult = await refund(details);
+      refundResult = await refund(details)
       throw ApplicationFailure.create({
         message: `Failed to deposit money into account ${details.targetAccount}. Money returned to ${details.sourceAccount}. Cause: ${depositErr}.`,
-      });
+      })
     } catch (refundErr) {
       throw ApplicationFailure.create({
         message: `Failed to deposit money into account ${details.targetAccount}. Money could not be returned to ${details.sourceAccount}. Cause: ${refundErr}.`,
-      });
+      })
     }
   }
-  return `Transfer complete (transaction IDs: ${withdrawResult}, ${depositResult})`;
+  return `Transfer complete (transaction IDs: ${withdrawResult}, ${depositResult})`
 }
 // @@@SNIPEND

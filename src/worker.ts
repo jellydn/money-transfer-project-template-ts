@@ -1,7 +1,7 @@
 // @@@SNIPSTART money-transfer-project-template-ts-worker
-import { Worker } from '@temporalio/worker';
-import * as activities from './activities';
-import { namespace, taskQueueName } from './shared';
+import { Worker } from '@temporalio/worker'
+import * as activities from './activities'
+import { namespace, taskQueueName } from './shared'
 
 async function run() {
   // Register Workflows and Activities with the Worker and connect to
@@ -11,14 +11,14 @@ async function run() {
     activities,
     namespace,
     taskQueue: taskQueueName,
-  });
+  })
 
   // Start accepting tasks from the Task Queue.
-  await worker.run();
+  await worker.run()
 }
 
 run().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+  console.error(err)
+  process.exit(1)
+})
 // @@@SNIPEND
