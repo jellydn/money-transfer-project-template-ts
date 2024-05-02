@@ -18,24 +18,24 @@
     "dev": "run-p -l server:dev start:dev"
   },
   "dependencies": {
-    "@temporalio/activity": "^1.9.3",
-    "@temporalio/client": "^1.9.3",
-    "@temporalio/common": "^1.9.3",
-    "@temporalio/worker": "^1.9.3",
-    "@temporalio/workflow": "^1.9.3",
-    "nanoid": "^5.0.7"
+    "@temporalio/activity": "1.9.3",
+    "@temporalio/client": "1.9.3",
+    "@temporalio/common": "1.9.3",
+    "@temporalio/worker": "1.9.3",
+    "@temporalio/workflow": "1.9.3",
+    "nanoid": "5.0.7"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.2",
-    "@temporalio/testing": "^1.9.3",
-    "@tsconfig/node18": "^18.2.4",
-    "@vitest/ui": "^1.5.3",
-    "npm-run-all2": "^6.1.2",
-    "tsup": "^8.0.2",
-    "tsx": "^4.8.2",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11",
-    "vitest": "^1.5.3",
-    "wait-on": "^7.2.0"
+    "@temporalio/testing": "1.9.3",
+    "@tsconfig/node18": "18.2.4",
+    "@vitest/ui": "1.5.3",
+    "npm-run-all2": "6.1.2",
+    "tsup": "8.0.2",
+    "tsx": "4.8.2",
+    "typescript": "5.4.5",
+    "vite": "5.2.11",
+    "vitest": "1.5.3",
+    "wait-on": "7.2.0"
   }
 }
