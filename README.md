@@ -27,6 +27,11 @@ bun run dev
 bun run test
 ```
 
+## Resources
+
+- [Set up a local development environment for Temporal and TypeScript](https://learn.temporal.io/getting_started/typescript/dev_environment/)
+- [Run your first Temporal application with the TypeScript SDK](https://learn.temporal.io/getting_started/typescript/first_program_in_typescript/)
+
 ## Author
 
 👤 **Dung Huynh**
