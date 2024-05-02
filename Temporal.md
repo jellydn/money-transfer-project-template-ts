@@ -4,10 +4,11 @@ This is the companion code for the tutorial [Run your first Temporal Application
 
 ### Running this sample:
 
-1. Make sure Temporal Server is running locally (see the [quick install guide](https://docs.temporal.io/server/quick-install/)).
-1. `bun install` to install dependencies.
-1. `bun run worker` to start the Worker.
-1. In another shell, `bun run client` to run the Workflow Client.
+- Make sure Temporal Server is running locally (see the [quick install guide](https://docs.temporal.io/server/quick-install/)).
+- `bun install` to install dependencies.
+- `bun run server:dev` to start the Temporal server.
+- `bun run start:worker` to start the Worker.
+- In another shell, `bun run start:client` to run the Workflow Client.
 
 The Workflow will return:
 
