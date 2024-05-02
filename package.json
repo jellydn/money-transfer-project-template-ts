@@ -7,6 +7,7 @@
     "build:watch": "tsup --watch",
     "check": "biome check --apply .",
     "format": "biome format . --write",
+    "test": "mocha --exit --require tsx --require source-map-support/register src/mocha/*.test.ts",
     "lint": "biome lint .",
     "server:dev": "temporal server start-dev",
     "start": "tsx src/worker.ts",
