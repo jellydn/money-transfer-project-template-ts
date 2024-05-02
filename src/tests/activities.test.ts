@@ -1,6 +1,6 @@
 import assert from 'assert'
 import { MockActivityEnvironment } from '@temporalio/testing'
-import { it, describe } from 'vitest'
+import { describe, it } from 'vitest'
 
 import * as activities from '../activities'
 import type { PaymentDetails } from '../shared'

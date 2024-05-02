@@ -2,8 +2,8 @@
 import { Connection, WorkflowClient } from '@temporalio/client'
 
 import type { PaymentDetails } from './shared'
-import { moneyTransfer } from './workflows'
 import { namespace, taskQueueName } from './shared'
+import { moneyTransfer } from './workflows'
 
 async function run() {
   const connection = await Connection.connect()
