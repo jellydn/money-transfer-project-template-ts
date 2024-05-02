@@ -28,7 +28,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.7.2",
     "@temporalio/testing": "1.9.3",
-    "@tsconfig/node18": "18.2.4",
+    "@tsconfig/node20": "20.1.4",
     "@vitest/ui": "1.5.3",
     "npm-run-all2": "6.1.2",
     "tsup": "8.0.2",

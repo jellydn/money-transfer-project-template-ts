@@ -4,9 +4,9 @@ import { TestWorkflowEnvironment } from '@temporalio/testing'
 import { DefaultLogger, LogEntry, Runtime, Worker } from '@temporalio/worker'
 import { afterAll, beforeAll, describe, it, vi } from 'vitest'
 
-import * as activities from '../activities'
-import type { PaymentDetails } from '../shared'
-import { moneyTransfer } from '../workflows'
+import * as activities from '../src/activities'
+import type { PaymentDetails } from '../src/shared'
+import { moneyTransfer } from '../src/workflows'
 
 let testEnv: TestWorkflowEnvironment
 
@@ -35,7 +35,7 @@ describe('Money Transfer workflow', () => {
     const worker = await Worker.create({
       connection: nativeConnection,
       taskQueue,
-      workflowsPath: require.resolve('../workflows.ts'),
+      workflowsPath: require.resolve('../src/workflows.ts'),
       activities: {
         withdraw: async () => 'w1234567890',
         deposit: async () => 'd1234567890',
@@ -70,7 +70,7 @@ describe('Money Transfer workflow', () => {
     const worker = await Worker.create({
       connection: nativeConnection,
       taskQueue,
-      workflowsPath: require.resolve('../workflows.ts'),
+      workflowsPath: require.resolve('../src/workflows.ts'),
       activities,
     })
 
@@ -105,7 +105,7 @@ describe('Money Transfer workflow', () => {
     const worker = await Worker.create({
       connection: nativeConnection,
       taskQueue,
-      workflowsPath: require.resolve('../workflows.ts'),
+      workflowsPath: require.resolve('../src/workflows.ts'),
       activities,
     })
 
@@ -140,7 +140,7 @@ describe('Money Transfer workflow', () => {
     const worker = await Worker.create({
       connection: nativeConnection,
       taskQueue,
-      workflowsPath: require.resolve('../workflows.ts'),
+      workflowsPath: require.resolve('../src/workflows.ts'),
       activities,
     })
 
