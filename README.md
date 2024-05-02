@@ -1,17 +1,31 @@
-# Temporal Money Transfer example in TypeScript
+<h1 align="center">Welcome to temporal-money-transfer 👋</h1>
 
-This is the companion code for the tutorial [Run your first Temporal Application with TypeScript](https://learn.temporal.io/getting_started/typescript/first_program_in_typescript).
+> Temporal Money Transfer example in TypeScript
 
-### Running this sample:
+## Pre-requisites
 
-1. Make sure Temporal Server is running locally (see the [quick install guide](https://docs.temporal.io/server/quick-install/)).
-1. `bun install` to install dependencies.
-1. `bun run worker` to start the Worker.
-1. In another shell, `bun run client` to run the Workflow Client.
+- [Bun](https://bun.sh)
+- [Temporal CLI](https://docs.temporal.io/server/quick-install/)
 
-The Workflow will return:
+## Install
 
-```bash
-Started Workflow workflow-OyIhuWr6X4opgqtYnhxuX with RunID a85055c8-3fce-466e-b4f6-8f66c16614e6
-Transfer complete (transaction IDs: w1328871163, d0590412617)
+```sh
+bun install
 ```
+
+## Usage
+
+```sh
+bun run dev
+```
+
+## Run tests
+
+```sh
+bun run test
+```
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
