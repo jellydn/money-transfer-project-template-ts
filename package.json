@@ -29,13 +29,13 @@
     "@biomejs/biome": "1.7.2",
     "@temporalio/testing": "1.9.3",
     "@tsconfig/node20": "20.1.4",
-    "@vitest/ui": "1.5.3",
+    "@vitest/ui": "1.6.0",
     "npm-run-all2": "6.1.2",
     "tsup": "8.0.2",
     "tsx": "4.9.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",
-    "vitest": "1.5.3",
+    "vitest": "1.6.0",
     "wait-on": "7.2.0"
   }
 }
